@@ -8,14 +8,12 @@ package gview_test
 
 import (
 	"context"
-	"github.com/gogf/gf/encoding/ghtml"
-	"github.com/gogf/gf/os/gtime"
-	"github.com/gogf/gf/util/gconv"
 	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
-	"time"
+
+	"github.com/gogf/gf/encoding/ghtml"
 
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/os/gfile"
@@ -290,41 +288,41 @@ func Test_ParseContent(t *testing.T) {
 	})
 }
 
-func Test_HotReload(t *testing.T) {
-	gtest.C(t, func(t *gtest.T) {
-		dirPath := gfile.Join(
-			gfile.TempDir(),
-			"testdata",
-			"template-"+gconv.String(gtime.TimestampNano()),
-		)
-		defer gfile.Remove(dirPath)
-		filePath := gfile.Join(dirPath, "test.html")
+// func Test_HotReload(t *testing.T) {
+// 	gtest.C(t, func(t *gtest.T) {
+// 		dirPath := gfile.Join(
+// 			gfile.TempDir(),
+// 			"testdata",
+// 			"template-"+gconv.String(gtime.TimestampNano()),
+// 		)
+// 		defer gfile.Remove(dirPath)
+// 		filePath := gfile.Join(dirPath, "test.html")
 
-		// Initialize data.
-		err := gfile.PutContents(filePath, "test:{{.var}}")
-		t.Assert(err, nil)
+// 		// Initialize data.
+// 		err := gfile.PutContents(filePath, "test:{{.var}}")
+// 		t.Assert(err, nil)
 
-		view := gview.New(dirPath)
+// 		view := gview.New(dirPath)
 
-		time.Sleep(100 * time.Millisecond)
-		result, err := view.Parse(context.TODO(), "test.html", g.Map{
-			"var": "1",
-		})
-		t.Assert(err, nil)
-		t.Assert(result, `test:1`)
+// 		time.Sleep(100 * time.Millisecond)
+// 		result, err := view.Parse(context.TODO(), "test.html", g.Map{
+// 			"var": "1",
+// 		})
+// 		t.Assert(err, nil)
+// 		t.Assert(result, `test:1`)
 
-		// Update data.
-		err = gfile.PutContents(filePath, "test2:{{.var}}")
-		t.Assert(err, nil)
+// 		// Update data.
+// 		err = gfile.PutContents(filePath, "test2:{{.var}}")
+// 		t.Assert(err, nil)
 
-		time.Sleep(100 * time.Millisecond)
-		result, err = view.Parse(context.TODO(), "test.html", g.Map{
-			"var": "2",
-		})
-		t.Assert(err, nil)
-		t.Assert(result, `test2:2`)
-	})
-}
+// 		time.Sleep(100 * time.Millisecond)
+// 		result, err = view.Parse(context.TODO(), "test.html", g.Map{
+// 			"var": "2",
+// 		})
+// 		t.Assert(err, nil)
+// 		t.Assert(result, `test2:2`)
+// 	})
+// }
 
 func Test_XSS(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {

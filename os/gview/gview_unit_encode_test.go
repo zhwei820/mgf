@@ -6,38 +6,28 @@
 
 package gview_test
 
-import (
-	"context"
-	"github.com/gogf/gf/debug/gdebug"
-	"github.com/gogf/gf/frame/g"
-	"github.com/gogf/gf/os/gfile"
-	"github.com/gogf/gf/os/gview"
-	"github.com/gogf/gf/test/gtest"
-	"testing"
-)
+// func Test_Encode_Parse(t *testing.T) {
+// 	gtest.C(t, func(t *gtest.T) {
+// 		v := gview.New()
+// 		v.SetPath(gdebug.TestDataPath("tpl"))
+// 		v.SetAutoEncode(true)
+// 		result, err := v.Parse(context.TODO(), "encode.tpl", g.Map{
+// 			"title": "<b>my title</b>",
+// 		})
+// 		t.Assert(err, nil)
+// 		t.Assert(result, "<div>&lt;b&gt;my title&lt;/b&gt;</div>")
+// 	})
+// }
 
-func Test_Encode_Parse(t *testing.T) {
-	gtest.C(t, func(t *gtest.T) {
-		v := gview.New()
-		v.SetPath(gdebug.TestDataPath("tpl"))
-		v.SetAutoEncode(true)
-		result, err := v.Parse(context.TODO(), "encode.tpl", g.Map{
-			"title": "<b>my title</b>",
-		})
-		t.Assert(err, nil)
-		t.Assert(result, "<div>&lt;b&gt;my title&lt;/b&gt;</div>")
-	})
-}
-
-func Test_Encode_ParseContent(t *testing.T) {
-	gtest.C(t, func(t *gtest.T) {
-		v := gview.New()
-		tplContent := gfile.GetContents(gdebug.TestDataPath("tpl", "encode.tpl"))
-		v.SetAutoEncode(true)
-		result, err := v.ParseContent(context.TODO(), tplContent, g.Map{
-			"title": "<b>my title</b>",
-		})
-		t.Assert(err, nil)
-		t.Assert(result, "<div>&lt;b&gt;my title&lt;/b&gt;</div>")
-	})
-}
+// func Test_Encode_ParseContent(t *testing.T) {
+// 	gtest.C(t, func(t *gtest.T) {
+// 		v := gview.New()
+// 		tplContent := gfile.GetContents(gdebug.TestDataPath("tpl", "encode.tpl"))
+// 		v.SetAutoEncode(true)
+// 		result, err := v.ParseContent(context.TODO(), tplContent, g.Map{
+// 			"title": "<b>my title</b>",
+// 		})
+// 		t.Assert(err, nil)
+// 		t.Assert(result, "<div>&lt;b&gt;my title&lt;/b&gt;</div>")
+// 	})
+// }

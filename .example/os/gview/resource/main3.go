@@ -1,18 +1,18 @@
-package main
+// package main
 
-import (
-	"fmt"
+// import (
+// 	"fmt"
 
-	"github.com/gogf/gf/frame/g"
-	"github.com/gogf/gf/os/gres"
-	_ "github.com/gogf/gf/os/gres/testdata"
-)
+// 	"github.com/gogf/gf/frame/g"
+// 	"github.com/gogf/gf/os/gres"
+// 	_ "github.com/gogf/gf/os/gres/testdata"
+// )
 
-func main() {
-	gres.Dump()
+// func main() {
+// 	gres.Dump()
 
-	v := g.View()
-	s, err := v.Parse("index.html")
-	fmt.Println(err)
-	fmt.Println(s)
-}
+// 	v := g.View()
+// 	s, err := v.Parse("index.html")
+// 	fmt.Println(err)
+// 	fmt.Println(s)
+// }
