@@ -7,8 +7,6 @@
 package g
 
 import (
-	"github.com/gogf/gf/database/gdb"
-	"github.com/gogf/gf/database/gredis"
 	"github.com/gogf/gf/frame/gins"
 	"github.com/gogf/gf/i18n/gi18n"
 	"github.com/gogf/gf/net/ghttp"
@@ -79,30 +77,6 @@ func Res(name ...string) *gres.Resource {
 // The parameter <name> is the name for the instance.
 func Log(name ...string) *glog.Logger {
 	return gins.Log(name...)
-}
-
-// DB returns an instance of database ORM object with specified configuration group name.
-func DB(name ...string) gdb.DB {
-	return gins.Database(name...)
-}
-
-// Table is alias of Model.
-// The database component is designed not only for
-// relational databases but also for NoSQL databases in the future. The name
-// "Table" is not proper for that purpose any more.
-// Deprecated, use Model instead.
-func Table(tableNameOrStruct ...interface{}) *gdb.Model {
-	return DB().Model(tableNameOrStruct...)
-}
-
-// Model creates and returns a model based on configuration of default database group.
-func Model(tableNameOrStruct ...interface{}) *gdb.Model {
-	return DB().Model(tableNameOrStruct...)
-}
-
-// Redis returns an instance of redis client with specified configuration group name.
-func Redis(name ...string) *gredis.Redis {
-	return gins.Redis(name...)
 }
 
 // Validator is a convenience function, which creates and returns a new validation manager object.
