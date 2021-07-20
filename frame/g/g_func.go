@@ -9,7 +9,6 @@ package g
 import (
 	"github.com/gogf/gf/container/gvar"
 	"github.com/gogf/gf/internal/empty"
-	"github.com/gogf/gf/net/ghttp"
 	"github.com/gogf/gf/os/gproc"
 	"github.com/gogf/gf/util/gutil"
 )
@@ -17,12 +16,6 @@ import (
 // NewVar returns a gvar.Var.
 func NewVar(i interface{}, safe ...bool) *Var {
 	return gvar.New(i, safe...)
-}
-
-// Wait is an alias of ghttp.Wait, which blocks until all the web servers shutdown.
-// It's commonly used in multiple servers situation.
-func Wait() {
-	ghttp.Wait()
 }
 
 // Listen is an alias of gproc.Listen, which handles the signals received and automatically

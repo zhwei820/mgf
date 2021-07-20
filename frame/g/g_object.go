@@ -9,7 +9,6 @@ package g
 import (
 	"github.com/gogf/gf/frame/gins"
 	"github.com/gogf/gf/i18n/gi18n"
-	"github.com/gogf/gf/net/ghttp"
 	"github.com/gogf/gf/net/gtcp"
 	"github.com/gogf/gf/net/gudp"
 	"github.com/gogf/gf/os/gcfg"
@@ -18,16 +17,6 @@ import (
 	"github.com/gogf/gf/os/gview"
 	"github.com/gogf/gf/util/gvalid"
 )
-
-// Client is a convenience function, which creates and returns a new HTTP client.
-func Client() *ghttp.Client {
-	return ghttp.NewClient()
-}
-
-// Server returns an instance of http server with specified name.
-func Server(name ...interface{}) *ghttp.Server {
-	return gins.Server(name...)
-}
 
 // TCPServer returns an instance of tcp server with specified name.
 func TCPServer(name ...interface{}) *gtcp.Server {
